@@ -1,0 +1,20 @@
+{
+    "name": "AWF-AutoLogin",
+    "version": "1.0",
+    "description": "auto login",
+    "content_scripts": [
+        {
+            "matches": [
+                "*://goseitest-admin.honeysoftware.co.nz/app/pub/cli/logon.html*",
+                "*://localhost:8081/app/pub/cli/logon.html*",
+                "*://*.honeysoftware.co.nz/login.aspx*"
+            ],
+            "js": [
+                "js/jquery-1.11.3.min.js",
+                "js/main.js"
+            ]
+        }
+    ],
+    "manifest_version": 2,
+    "author": "Nemu"
+}
