@@ -1,3 +1,5 @@
+$('.brID-Username input')
+$('.brID-Password input')
 var wtf = $('select option');
 $(wtf[1]).html();
 

@@ -6,7 +6,10 @@
         {
             "matches": [
                 "*://goseitest-admin.honeysoftware.co.nz/app/pub/cli/logon.html*",
-                "http://localhost:8081/app/pub/cli/logon.html*"
+                "http://localhost:8081/app/pub/cli/logon.html*",
+                "*://*.honeysoftware.co.nz/login.aspx*",
+                "http://localhost:63653/login.aspx*",
+                "*://*.honeysoftware.co.nz/app/pub/cli/logon.html*"
             ],
             "js": [
                 "js/jquery-1.11.3.min.js",
@@ -14,6 +17,8 @@
             ]
         }
     ],
+    "web_accessible_resources": [ "js/donormallogin.js" ],
+    "permissions": [ "tabs" ],
     "manifest_version": 2,
     "author": "Nemu"
 }
