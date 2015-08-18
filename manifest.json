@@ -17,8 +17,6 @@
             ]
         }
     ],
-    "web_accessible_resources": [ "js/donormallogin.js" ],
-    "permissions": [ "tabs" ],
     "manifest_version": 2,
     "author": "Nemu"
 }
