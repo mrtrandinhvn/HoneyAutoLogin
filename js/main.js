@@ -86,6 +86,9 @@ $(document).ready(function () {
             case /hiltontest-adminnoncrm/.test(currentURL):
                 userObj = setSpecialLoginData("admin", "hiltonadmin");
                 break;
+            case /fleetwoodtest-adminnoncrm/.test(currentURL):
+                userObj = setSpecialLoginData("admin", "fleetwoodadmin");
+                break;
         }
         doLoginPayrollManager(userObj);
     } else if (normalPattern.test(currentURL)) {

@@ -1,6 +1,6 @@
 {
     "name": "AWF-AutoLogin",
-    "version": "1.0",
+    "version": "1.01",
     "description": "auto login",
     "content_scripts": [
         {
