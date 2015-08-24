@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var currentURL = document.URL;
     var payrollManagerPattern = /\/app\/pub\/cli\/logon.html/;
-    var normalPattern = /.honeysoftware.co.nz\/login.aspx|localhost:63653\/login.aspx/;
+    var normalPattern = /.honeysoftware.co.nz\/login.aspx|localhost:63653\/login.aspx|careers.crewships.com\/login.aspx/;
     var userObj;// use to store login account
     if (payrollManagerPattern.test(currentURL)) {
         userObj = {
@@ -30,6 +30,7 @@ $(document).ready(function () {
                 userObj = setSpecialLoginData("admin", "aaa");
                 break;
             case /hiltontest-adminnoncrm/.test(currentURL):
+            case /careers.crewships.com\/login.aspx/.test(currentURL):
                 userObj = setSpecialLoginData("phil", "123");
                 break;
         }
