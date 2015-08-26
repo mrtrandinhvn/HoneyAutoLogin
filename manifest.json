@@ -1,5 +1,5 @@
 {
-    "name": "AWF-AutoLogin",
+    "name": "Honey-AutoLogin",
     "version": "1.1.0",
     "description": "auto login",
     "content_scripts": [
@@ -20,5 +20,5 @@
         }
     ],
     "manifest_version": 2,
-    "author": "Nemu"
+    "author": "goseidinh"
 }
