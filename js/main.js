@@ -31,6 +31,7 @@ $(document).ready(function () {
                 break;
             case /hiltontest-adminnoncrm/.test(currentURL):
             case /careers.crewships.com\/login.aspx/.test(currentURL):
+            case /aspcrewtest.honeysoftware.co.nz/.test(currentURL):
                 userObj = setSpecialLoginData("phil", "123");
                 break;
         }
