@@ -18,6 +18,9 @@ $(document).ready(function () {
             case /fleetwoodtest-adminnoncrm/.test(currentURL):
                 userObj = setSpecialLoginData("admin", "fleetwoodadmin");
                 break;
+	    case /awftest-apps.honeysoftware.co.nz/.test(currentURL):
+                userObj = setSpecialLoginData("penrose", "penr0se");
+                break;
         }
         doLoginPayrollManager(userObj);
     } else if (normalPattern.test(currentURL)) {
@@ -26,6 +29,7 @@ $(document).ready(function () {
             password: "12345"
         }
         switch (true) {
+            case /nzruuat.honeysoftware.co.nz/.test(currentURL):
             case /draketest.honeysoftware.co.nz/.test(currentURL):
                 userObj = setSpecialLoginData("admin", "aaa");
                 break;
