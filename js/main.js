@@ -6,7 +6,7 @@ $(document).ready(function () {
     if (payrollManagerPattern.test(currentURL)) {
         userObj = {
             username: "admin",
-            password: "goseitest"
+            password: "clover"
         }
         switch (true) {
             case /asptest-adminnoncrm/.test(currentURL):
@@ -18,7 +18,7 @@ $(document).ready(function () {
             case /fleetwoodtest-adminnoncrm/.test(currentURL):
                 userObj = setSpecialLoginData("admin", "fleetwoodadmin");
                 break;
-	    case /awftest-apps.honeysoftware.co.nz/.test(currentURL):
+            case /awftest-apps.honeysoftware.co.nz/.test(currentURL):
                 userObj = setSpecialLoginData("penrose", "penr0se");
                 break;
         }
