@@ -21,6 +21,10 @@ $(document).ready(function () {
             case /awftest-apps.honeysoftware.co.nz/.test(currentURL):
                 userObj = setSpecialLoginData("penrose", "penr0se");
                 break;
+            case /aupayroll-admin.honeysoftware.co.nz/.test(currentURL):
+                userObj = setSpecialLoginData("admin", "aupayrolladmin");
+                break;
+                
         }
         doLoginPayrollManager(userObj);
     } else if (normalPattern.test(currentURL)) {
