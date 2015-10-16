@@ -3,8 +3,14 @@
 <head>
 </head>
 <body>
-    <div>
-        UPDATE dbo.e4_userrolemodule SET e4_moduleid = (SELECT TOP(1) e4_moduleid FROM dbo.e4_module WHERE e4_code = 'CRM') WHERE e4_userrolemoduleid = (SELECT e4_userrolemoduleid FROM e4_userrolemodule WHERE e4_isdefault = 1 AND e4_userid =(SELECT e4_userid FROM e4_user WHERE e4_username = 'admin'))
-    </div>
+    <textarea style="height: 480px;">
+        DECLARE @moduleId uniqueidentifier = (SELECT TOP (1) e4_moduleid FROM dbo.e4_module WHERE e4_code = 'AS');
+
+        UPDATE dbo.e4_userrolemodule
+        SET e4_moduleid = @moduleId
+        WHERE e4_userrolemoduleid = (SELECT e4_userrolemoduleid FROM e4_userrolemodule WHERE e4_isdefault = 1
+        AND e4_userid = (SELECT e4_userid FROM e4_user WHERE e4_username = 'admin')
+        AND e4_moduleid = @moduleId)
+    </textarea>
 </body>
 </html> 
