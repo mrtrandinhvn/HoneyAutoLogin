@@ -1,5 +1,6 @@
 $(document).ready(function () {
     var currentURL = document.URL;
+    var currentDomain = document.domain;
     var payrollManagerPattern = /\/app\/pub\/cli\/logon.html/;
     var normalPattern = /.honeysoftware.co.nz\/login.aspx|localhost:63653\/login.aspx|careers.crewships.com\/login.aspx/;
     var userObj;// use to store login account
@@ -23,6 +24,13 @@ $(document).ready(function () {
                 break;
             case /aupayroll-admin.honeysoftware.co.nz/.test(currentURL):
                 userObj = setSpecialLoginData("admin", "aupayrolladmin");
+                break;
+            case /localhost:/.test(currentURL):
+                // use default userObj
+                break;
+            default:
+                // ie "jettstest-admin.honeysoftware.co.nz" -> password = "jettsadmin"
+                userObj = setSpecialLoginData("admin", currentDomain.split("-")[0].replace("test", "admin"));
                 break;
         }
         doLoginPayrollManager(userObj);

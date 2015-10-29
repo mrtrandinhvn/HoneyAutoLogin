@@ -10,9 +10,7 @@
 
         UPDATE dbo.e4_userrolemodule
         SET e4_moduleid = @moduleId
-        WHERE e4_userrolemoduleid = (SELECT e4_userrolemoduleid FROM e4_userrolemodule WHERE e4_isdefault = 1
-        AND e4_userid = (SELECT e4_userid FROM e4_user WHERE e4_username = 'admin')
-        AND e4_moduleid = @moduleId)
+        WHERE e4_userrolemoduleid = '___'
     </textarea>
 </body>
 </html> 

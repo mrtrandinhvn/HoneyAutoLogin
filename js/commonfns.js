@@ -59,7 +59,7 @@ var doNormalLogin = function (userObj) {
             doLoginActions(userObj);
         });
     } else {
-        doLoginActions(userObj)
+        doLoginActions(userObj);
     }
 }
 var setSpecialLoginData = function (username, password) {

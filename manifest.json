@@ -1,6 +1,6 @@
 {
     "name": "Honey-AutoLogin",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "description": "auto login",
     "content_scripts": [
         {
