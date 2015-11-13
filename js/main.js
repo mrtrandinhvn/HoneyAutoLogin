@@ -40,7 +40,6 @@ $(document).ready(function () {
             password: "12345"
         }
         switch (true) {
-            case /drakehp.honeysoftware.co.nz/.test(currentURL):
             case /nzruuat.honeysoftware.co.nz/.test(currentURL):
             case /draketest.honeysoftware.co.nz/.test(currentURL):
                 userObj = setSpecialLoginData("admin", "aaa");
