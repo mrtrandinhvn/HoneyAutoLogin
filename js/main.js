@@ -50,6 +50,9 @@ $(document).ready(function () {
             case /aspcrewtest.honeysoftware.co.nz/.test(currentURL):
                 userObj = setSpecialLoginData("phil", "123");
                 break;
+            case /drakehp.honeysoftware.co.nz/.test(currentURL):
+                userObj = setSpecialLoginData("admin1", "12345");
+                break;
         }
         doNormalLogin(userObj);
     }
