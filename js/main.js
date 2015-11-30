@@ -7,7 +7,7 @@ $(document).ready(function () {
     if (payrollManagerPattern.test(currentURL)) {
         userObj = {
             username: "admin",
-            password: "clover"
+            password: "jettsadmin"
         }
         switch (true) {
             case /asptest-adminnoncrm/.test(currentURL):

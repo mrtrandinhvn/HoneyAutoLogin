@@ -3,25 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HoneyAutoLogin(1)", "http://localhost:57933", "{4F62EED5-6A96-4D68-8CE7-4425B353EF4A}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HoneyAutoLogin", "http://localhost:18206", "{4F62EED5-6A96-4D68-8CE7-4425B353EF4A}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_57933"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\HoneyAutoLogin\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57933\"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_18206"
+		Debug.AspNetCompiler.PhysicalPath = "..\HoneyAutoLogin\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_18206\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_57933"
-		Release.AspNetCompiler.PhysicalPath = "..\..\HoneyAutoLogin\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57933\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_18206"
+		Release.AspNetCompiler.PhysicalPath = "..\HoneyAutoLogin\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_18206\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "..\..\HoneyAutoLogin\"
+		SlnRelativePath = "..\HoneyAutoLogin\"
 	EndProjectSection
 EndProject
 Global

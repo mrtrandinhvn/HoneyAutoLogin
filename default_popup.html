@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/popup/commonfns.js"></script>
 </head>
-<body>
-    <textarea style="height: 480px;">
-        UPDATE e4_user SET e4_password = '12345', e4_passwordversion = 0 WHERE e4_username = 'admin';
-
-        DECLARE @moduleId uniqueidentifier = (SELECT TOP (1) e4_moduleid FROM dbo.e4_module WHERE e4_code = 'AS');
-
-        UPDATE dbo.e4_userrolemodule
-        SET e4_moduleid = @moduleId
-        WHERE e4_userrolemoduleid = '___'
-    </textarea>
+<body style="width: 800px; height: 600px;">
+    <div id="input">Module Name:<input id="input-moduleName" placeholder="Enter Module Name" /><input value="UserSessionData.UserModuleId" disabled="" /><input id="input-userModuleId" placeholder="Enter UserModuleId" /></div>
+    <div id="output" style="display:none">
+        <div>UPDATE e4_user SET e4_password = '12345', e4_passwordversion = 0 WHERE e4_username = 'admin';</div>
+        <div>DECLARE @moduleId uniqueidentifier = (SELECT TOP (1) e4_moduleid FROM dbo.e4_module WHERE e4_code = '<span id="span-moduleCode"></span>');</div>
+        <div>UPDATE dbo.e4_userrolemodule SET e4_moduleid = @moduleId WHERE e4_userrolemoduleid = '<span id="span-userModuleId"></span>'</div>
+    </div>
 </body>
 </html> 
