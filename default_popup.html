@@ -1,15 +1,70 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <script src="/js/jquery-1.11.3.min.js"></script>
-    <script src="/js/popup/commonfns.js"></script>
+    <title>Saved Accounts</title>
+    <!-- ============= core styles ================== -->
+    <link rel="stylesheet" href="css/slickgrid/slick.grid.css" type="text/css" />
+    <link rel="stylesheet" href="css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css" />
+    <link rel="stylesheet" href="js/core/slickgrid/plugins/slick.headermenu.css" type="text/css" />
+    <link rel="stylesheet" href="css/application.css" type="text/css" />
+    <!-- ============= END core styles ================== -->
+    <!-- ============= START CORE JS================== -->
+    <script src="js/core/jquery/jquery-1.7.min.js"></script>
+    <script src="js/core/jquery/jquery.event.drag-2.2.js"></script>
+    <script src="js/core/jquery/jquery-ui-1.8.16.custom.min.js"></script>
+
+    <script src="js/core/slickgrid/slick.core.js"></script>
+    <script src="js/core/slickgrid/slick.formatters.js"></script>
+    <script src="js/core/slickgrid/slick.editors.js"></script>
+    <script src="js/core/slickgrid/slick.grid.js"></script>
+
+    <script src="js/core/slickgrid/plugins/slick.cellrangeselector.js"></script>
+    <script src="js/core/slickgrid/plugins/slick.cellselectionmodel.js"></script>
+    <script src="js/core/slickgrid/plugins/slick.rowselectionmodel.js"></script>
+
+    <!-- ============= END CORE JS ================== -->
+    <script src="js/popup/controller.js"></script>
+    <script src="js/popup/viewgridaccounts.js"></script>
+    <script src="js/popup/commonfns.js"></script>
+    <style>
+        .message {
+            width: 200px;
+            height: 20px;
+            height: auto;
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            bottom: 10px;
+            background-color: #383838;
+            color: #F0F0F0;
+            font-family: Calibri;
+            font-size: 20px;
+            padding: 10px;
+            text-align: center;
+            -ms-border-radius: 2px;
+            border-radius: 2px;
+            -webkit-box-shadow: 0px 0px 24px -1px #383838;
+            -moz-box-shadow: 0px 0px 24px -1px #383838;
+            -ms-box-shadow: 0 0 24px -1px #383838;
+            box-shadow: 0 0 24px -1px #383838;
+        }
+    </style>
 </head>
-<body style="width: 800px; height: 600px;">
-    <div id="input">Module Name:<input id="input-moduleName" placeholder="Enter Module Name" /><input value="UserSessionData.UserModuleId" disabled="" /><input id="input-userModuleId" placeholder="Enter UserModuleId" /></div>
-    <div id="output" style="display:none">
-        <div>UPDATE e4_user SET e4_password = '12345', e4_passwordversion = 0 WHERE e4_username = 'admin';</div>
-        <div>DECLARE @moduleId uniqueidentifier = (SELECT TOP (1) e4_moduleid FROM dbo.e4_module WHERE e4_code = '<span id="span-moduleCode"></span>');</div>
-        <div>UPDATE dbo.e4_userrolemodule SET e4_moduleid = @moduleId WHERE e4_userrolemoduleid = '<span id="span-userModuleId"></span>'</div>
+<body>
+    <div style="position:relative">
+        <div style="width: 600px;">
+            <div id="viewMain">
+                <div id="viewGridAccounts">
+                    <div class="message" style="display: none"></div>
+                    <div class="grid-header" style="width: 100%">
+                        <button class="btn-save" style="float: right">SAVE</button>
+                        <button class="btn-delete" style="float: right">DELETE</button>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div class="grid" style="width: 100%; height: 500px;"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html> 

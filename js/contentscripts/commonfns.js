@@ -41,12 +41,12 @@ var doLoginWithRole = function () {
 }
 // Specific action to do login in normal honey pages
 var doLoginActions = function (userObj) {
-    $(".brID-Username input").val(userObj.username);
-    $(".brID-Username input").focus();
-    $(".brID-Password input").val(userObj.password);
-    $(".brID-Password input").focus();
-    $(".btn_login .brID-actionButton.br-button input").focus();
-    $(".btn_login .brID-actionButton.br-button input").click();
+    $('.brID-Username input').val(userObj.username);
+    $('.brID-Username input').focus();
+    $('.brID-Password input').val(userObj.password);
+    $('.brID-Password input').focus();
+    $('.btn_login .brID-actionButton.br-button input').focus();
+    $('.btn_login .brID-actionButton.br-button input').click();
     doLoginWithRole();
 }
 

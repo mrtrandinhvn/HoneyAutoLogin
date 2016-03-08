@@ -1,0 +1,25 @@
+.slick-row:hover,
+.slick-row.active {
+    background: lightblue;
+}
+
+.invalid input {
+    border: red 1px solid !important;
+    box-shadow: #FF0000 0 0 10px;
+}
+
+.cell-effort-driven {
+    text-align: center;
+}
+
+.slick-row.selected .cell-selection {
+    background-color: gray; /* show default selected row background */
+}
+
+.red {
+    background: red;
+}
+
+.bold {
+    font-weight: bold;
+}
