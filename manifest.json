@@ -1,12 +1,12 @@
 {
     "name": "Honey-AutoLogin",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Auto login",
     "content_scripts": [
         {
             "matches": [
                 "*://goseitest-admin.honeysoftware.co.nz/app/pub/cli/logon.html*",
-                "http://localhost:8081/app/pub/cli/logon.html*",
+                "http://localhost:*/app/pub/cli/logon.html*",
                 "*://*.honeysoftware.co.nz/login.aspx*",
                 "http://localhost:63653/login.aspx*",
                 "*://*.honeysoftware.co.nz/app/pub/cli/logon.html*",
