@@ -6,17 +6,16 @@ var ViewList = {
 }
 var Data = {
     records: null,
-    selected: null
+    selected: null,
+    orderBy: "id", // default sort column 
+    orderAsc: true // default sort order
 };
 (function () {
-    var Data = {
-        records: []
-    };
     var columns = [
-        { id: "id", name: "ID", field: "id", width: 50, selectable: true, editable: false, cssClass: "cell-title", cannotTriggerInsert: true, resizable: true },
-        { id: "username", name: "Username", field: "username", width: 100, validator: requiredFieldValidator, editor: Slick.Editors.Text, editable: true, resizable: true },
-        { id: "password", name: "Password", field: "password", width: 100, cssClass: "cell-title", editor: Slick.Editors.Text, validator: requiredFieldValidator, editable: true, resizable: true },
-        { id: "url", name: "Link", field: "url", width: 300, editor: Slick.Editors.Text, cssClass: "cell-title", cannotTriggerInsert: true, editable: true, resizable: true, validator: requiredFieldValidator }
+        { id: "id", name: "ID", field: "id", width: 50, selectable: true, editable: false, cssClass: "cell-title", cannotTriggerInsert: true, resizable: true, sortable: true },
+        { id: "username", name: "Username", field: "username", width: 100, validator: requiredFieldValidator, editor: Slick.Editors.Text, editable: true, resizable: true, sortable: true },
+        { id: "password", name: "Password", field: "password", width: 100, cssClass: "cell-title", editor: Slick.Editors.Text, validator: requiredFieldValidator, editable: true, resizable: true, sortable: true },
+        { id: "url", name: "Link", field: "url", width: 300, editor: Slick.Editors.Text, cssClass: "cell-title", cannotTriggerInsert: true, editable: true, resizable: true, validator: requiredFieldValidator, sortable: true }
     ];
     var options = {
         editable: true,
@@ -37,7 +36,7 @@ var Data = {
         if (data) {
             Data.records = data;
         }
-        grid.invalidateRows([Data.records.length - 1]);
+        grid.invalidateAllRows();
         grid.updateRowCount();
         grid.render();
     }
@@ -68,27 +67,72 @@ var Data = {
         $(ViewList.ViewGridAccounts.selector + " .grid-header .btn-save").click(onSave);
         $(ViewList.ViewGridAccounts.selector + " .grid-header .btn-delete").click(onDelete);
     }
+    function sortAsc(a, b) {
+        switch (Data.orderBy) {
+            case "username":
+                return a.username.toString().localeCompare(b.username.toString());
+            case "password":
+                return a.password.toString().localeCompare(b.password.toString());
+            case "url":
+                return a.url.toString().localeCompare(b.url.toString());
+            default: // id
+                return a.id.toString().localeCompare(b.id.toString());
+        }
+    }
+    function sortDesc(a, b) {
+        switch (Data.orderBy) {
+            case "username":
+                return b.username.toString().localeCompare(a.username.toString());
+            case "password":
+                return b.password.toString().localeCompare(a.password.toString());
+            case "url":
+                return b.url.toString().localeCompare(a.url.toString());
+            default: // id
+                return b.id.toString().localeCompare(a.id.toString());
+        }
+    }
+    // do sort function
+    function sortData(orderBy, orderAsc) {
+        if (orderAsc) {
+            Data.records.sort(sortAsc);
+        } else {
+            Data.records.sort(sortDesc);
+        }
+    }
+    // handle user's clicking sort button event
+    function onSort(event, args) {
+        Data.orderBy = args.sortCol.id;
+        Data.orderAsc = args.sortAsc;
+        sortData(Data.orderBy, Data.orderAsc);
+        onRefresh();
+    }
     $(document).ready(function () {
+        // Load data and generate users grid
+        var grid;
         Controller.getAccountList(null, function (accounts, args) {
             Data.records = accounts;
+            // initiate grid
             ViewList.ViewGridAccounts.grid = new Slick.Grid(ViewList.ViewGridAccounts.selector + " .grid", Data.records, columns, options);
-            ViewList.ViewGridAccounts.grid.setSelectionModel(new Slick.RowSelectionModel());
-            ViewList.ViewGridAccounts.grid.onAddNewRow.subscribe(function (e, gArgs) {
-                var grid = this; // == ViewList.ViewGridAccounts.grid;
+            // configure grid
+            grid = ViewList.ViewGridAccounts.grid;
+            grid.setSelectionModel(new Slick.RowSelectionModel());
+            grid.onSort.subscribe(onSort);
+            grid.onAddNewRow.subscribe(function (e, gArgs) {
                 var item;
                 if (grid.getData().length == 0) {
                     item = { id: 0 };
                 }
                 else {
-                    var currentCell = grid.getActiveCell();
-                    var currentRow = currentCell.row;
-                    var previousRowData = grid.getDataItem(currentRow - 1);
-                    item = { id: previousRowData.id + 1 };
+                    item = { id: Data.records.length }; // id is counted from 0
                 }
                 $.extend(item, gArgs.item);
                 Data.records.push(item);
                 onRefresh();
             });
+            // set default sort column
+            sortData(Data.orderBy, Data.orderAsc);
+            grid.setSortColumn(Data.orderBy, Data.orderAsc); // update UI
+            onRefresh(); // refresh grid data
         }, null);
         bindHeaderButtonEvents();
     });

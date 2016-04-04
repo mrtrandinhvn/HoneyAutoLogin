@@ -1,6 +1,6 @@
 {
     "name": "Honey-AutoLogin",
-    "version": "2.0.1",
+    "version": "2.1.0",
     "description": "Auto login",
     "content_scripts": [
         {
@@ -10,7 +10,8 @@
                 "*://*.honeysoftware.co.nz/login.aspx*",
                 "http://localhost:63653/login.aspx*",
                 "*://*.honeysoftware.co.nz/app/pub/cli/logon.html*",
-                "*://careers.crewships.com/login.aspx*"
+                "*://careers.crewships.com/login.aspx*",
+                "*://honey.producttaste.com/login.aspx"
             ],
             "js": [
                 "/js/core/jquery/jquery-1.11.3.min.js",

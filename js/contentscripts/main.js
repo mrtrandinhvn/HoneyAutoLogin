@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var currentUrl = document.URL;
     var payrollManagerPattern = /\/app\/pub\/cli\/logon.html/;
-    var normalPattern = /.honeysoftware.co.nz\/login.aspx|localhost:63653\/login.aspx|careers.crewships.com\/login.aspx/;
+    var normalPattern = /.honeysoftware.co.nz\/login.aspx|localhost:63653\/login.aspx|careers.crewships.com\/login.aspx|\w+:\/\/honey.producttaste.com\/login.aspx/;
     var mode = null;
     var userObj; // use to store login account
     if (payrollManagerPattern.test(currentUrl)) {
